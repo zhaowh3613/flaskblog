@@ -7,7 +7,7 @@ class Config:
     # os.environ.get('SECRET_ KEY') or
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
-    FLASKY_MAIL_SENDER = 'Flasky Admin'
+    FLASKY_MAIL_SENDER = 'kira409908735@163.com'
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')\
 
 
@@ -20,7 +20,7 @@ class DevelopmentConfig(Config):
     DEBUG = True
     # MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_SERVER = 'smtp.163.com'
-    MAIL_PORT = 587
+    MAIL_PORT = 25 #587
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
