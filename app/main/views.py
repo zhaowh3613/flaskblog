@@ -15,16 +15,16 @@ def index():
         #     flash('looks like you have chenged your name')
         # session['name'] = form.name.data
         # form.name.data = ""
-        user = User.query.filter_by(name=form.name.data).first()
+        user = User.query.filter_by(username=form.username.data).first()
         if user is None:
-            user = User(name=form.name.data)
+            user = User(username=form.username.data)
             db.session.add(user)
             session['known'] = False
             # if app.config['FlASY_ADMIN']:
             # send_email('zhaowh3613@outlook.com', 'new user '+user.name, 'mail/new_user', user=user)
         else:
             session['known'] = True
-        session['name'] = form.name.data
-        form.name.data = ''
+        session['username'] = form.username.data
+        form.username.data = ''
         return redirect(url_for('.index'))
-    return render_template('index.html', form=form, name=session.get('name'), known=session.get('known'), current_time=datetime.utcnow())
+    return render_template('index.html', form=form, username=session.get('username'), known=session.get('known'), current_time=datetime.utcnow())

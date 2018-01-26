@@ -5,6 +5,8 @@ from app.models import User, Role
 
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
+from flask_login import login_required
+
 # from flask_mail import Mail, Message
 # from threading import Thread
 # from flask_bootstrap import Bootstrap
@@ -143,6 +145,15 @@ def make_shell_context():
 
 manager.add_command("shell", Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
+
+
+
+
+@app.route('/secret')
+@login_required
+def secret():
+    return 'Only authenticated users are allowed'
+
 
 @manager.command
 def test():
