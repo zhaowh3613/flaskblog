@@ -17,7 +17,7 @@ def index():
         # form.name.data = ""
         user = User.query.filter_by(username=form.username.data).first()
         if user is None:
-            user = User(username=form.username.data)
+            user = User(email=form.emial.data, username=form.username.data, password=form.password.data, role_id=1)
             db.session.add(user)
             session['known'] = False
             # if app.config['FlASY_ADMIN']:
