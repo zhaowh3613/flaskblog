@@ -3,7 +3,7 @@
 
 {% block page_content %}
 <div class="page-header">
-    <h1>hello, {% if username %}{{ username }} {% else %} stranger {% endif %}</h1>
+{#    <h1>hello, {% if username %}{{ username }} {% else %} stranger {% endif %}</h1>#}
 {#    {% if not known %}#}
     {% if current_user.is_authenticated %}
         <P>Happy to see you again!</P>
@@ -12,7 +12,11 @@
     <p>Pleased to meet you!</p>
     {{ wtf.quick_form(form)}}
     {% endif %}
-     <p>the local date time is {{ moment(current_time).format('LLL') }}</p>
-    <p>that was {{ moment(current_time).fromNow(refresh=True) }}</p>
-{% endblock%}
 </div>
+<footer class="blog-footer">
+<div>
+    <p>the local date time is {{ moment(current_time).format('LLL') }}</p>
+    <p>that was {{ moment(current_time).fromNow(refresh=True) }}</p>
+</div>
+</footer>
+{% endblock%}
