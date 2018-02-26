@@ -18,7 +18,7 @@ class RegistrationForm(FlaskForm):
                                                                                      ' numbers dots or underscores')])
     password = PasswordField('Confirm password', validators=[Required(), EqualTo('password2', message='Password must match.')])
     password2 = PasswordField('Confirm password', validators=[Required()])
-    submit = SubmitField('Register')
+    submit = SubmitField('Create an account')
 
 
 def validate_email(self, field):
